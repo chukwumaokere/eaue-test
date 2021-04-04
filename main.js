@@ -16,12 +16,20 @@ function createWindow () {
     mainWindow = null;
   });
   mainWindow.once('ready-to-show', () => {
+    console.log('HELLO');
+    autoUpdater.setFeedURL({
+      provider: 'github',
+      owner: 'chukwumaokere',
+      repo: 'https://github.com/chukwumaokere/eaue-test/',
+      token: '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',
+    })
     autoUpdater.checkForUpdatesAndNotify();
   });
 }
 
 app.on('ready', () => {
   createWindow();
+  autoUpdater.checkForUpdatesAndNotify();
 });
 
 app.on('window-all-closed', function () {

@@ -1,11 +1,11 @@
 {
   "name": "electron-auto-update-example",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "",
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chukwumaokere/eaue-test.git"
+    "url": "https://github.com/chukwumaokere/eaue-test/"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
