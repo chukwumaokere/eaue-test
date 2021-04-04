@@ -62,12 +62,12 @@
       restartButton.classList.remove('hidden');
       notification.classList.remove('hidden');
     });
+    
     ipcRenderer.on('update_not_available', () => {
       ipcRenderer.removeAllListeners('update_not_available');
       message.innerText = 'Not availble';
-      restartButton.classList.remove('hidden');
-      notification.classList.remove('hidden');
     });
+
     ipcRenderer.on('checking_for_update', () => {
       ipcRenderer.removeAllListeners('checking_for_update');
       message.innerText = 'Checking..';
