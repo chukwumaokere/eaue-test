@@ -28,7 +28,7 @@
 <body>
   <h1>Electron Auto Update Example</h1>
   <p id="version"></p>
-  <div id="notification" class="hidden">
+  <div id="notification" >
     <p id="message"></p>
     <button id="close-button" onClick="closeNotification()">
       Close
@@ -47,7 +47,7 @@
     ipcRenderer.send('app_version');
     ipcRenderer.on('app_version', (event, arg) => {
       ipcRenderer.removeAllListeners('app_version');
-      version.innerText = 'Version ' + arg.version;
+      version.innerText = 'Version: ' + arg.version;
     });
 
     ipcRenderer.on('update_available', () => {
@@ -59,6 +59,18 @@
     ipcRenderer.on('update_downloaded', () => {
       ipcRenderer.removeAllListeners('update_downloaded');
       message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+      restartButton.classList.remove('hidden');
+      notification.classList.remove('hidden');
+    });
+    ipcRenderer.on('update_not_available', () => {
+      ipcRenderer.removeAllListeners('update_not_available');
+      message.innerText = 'Not availble';
+      restartButton.classList.remove('hidden');
+      notification.classList.remove('hidden');
+    });
+    ipcRenderer.on('checking-for-update', () => {
+      ipcRenderer.removeAllListeners('checking_for_update');
+      message.innerText = 'Checking..';
       restartButton.classList.remove('hidden');
       notification.classList.remove('hidden');
     });
