@@ -21,7 +21,6 @@ function createWindow () {
       provider: 'github',
       owner: 'chukwumaokere',
       repo: 'https://github.com/chukwumaokere/eaue-test/',
-      token: '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',
     })
     autoUpdater.checkForUpdatesAndNotify();
   });
